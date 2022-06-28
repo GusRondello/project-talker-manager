@@ -5,6 +5,7 @@ const errorMesages = {
     passwordInvalid: 'O "password" deve ter pelo menos 6 caracteres',
 };
 
+// emailRegex usado em outros projetos.
 const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
 const validateLogin = (req, res, next) => {
