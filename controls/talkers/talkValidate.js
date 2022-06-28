@@ -32,7 +32,7 @@ const validateRate = (req, res, next) => {
     const { talk: { rate } } = req.body;
     const { rateNull, rateInvalid } = errorMesages;
 
-    if (!rate) return res.status(400).json({ message: rateNull });
+    if (!rate && rate !== 0) return res.status(400).json({ message: rateNull });
     if (rate < 1 || rate > 5) return res.status(400).json({ message: rateInvalid });
 
     next();

@@ -13,6 +13,7 @@ const { validateTalk,
     validateWatchedAt, 
     validateRate } = require('./controls/talkers/talkValidate');
 const addTalker = require('./controls/talkers/addTalker');
+const updateTalker = require('./controls/talkers/editTalker');
 
 routes.get('/talker', readTalkerFile);
 routes.get('/talker/:id', findTalkerById);
@@ -25,5 +26,13 @@ routes.post('/talker',
     validateRate,
     validateWatchedAt,
     addTalker);
+routes.put('/talker/:id',
+    validateToken,
+    validateName,
+    validateAge,
+    validateTalk,
+    validateRate,
+    validateWatchedAt,
+    updateTalker);
 
 module.exports = routes;
