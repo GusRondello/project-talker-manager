@@ -15,9 +15,12 @@ const { validateTalk,
 const addTalker = require('./controls/talkers/addTalker');
 const updateTalker = require('./controls/talkers/editTalker');
 const deleteTalker = require('./controls/talkers/deleteTalker');
+const searchTalker = require('./controls/talkers/searchTalker');
 
+routes.get('/talker/search', validateToken, searchTalker);
 routes.get('/talker', readTalkerFile);
 routes.get('/talker/:id', findTalkerById);
+
 routes.post('/login', validateLogin, generateToken);
 routes.post('/talker', 
     validateToken, 
@@ -27,6 +30,7 @@ routes.post('/talker',
     validateRate,
     validateWatchedAt,
     addTalker);
+
 routes.put('/talker/:id',
     validateToken,
     validateName,
