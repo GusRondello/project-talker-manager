@@ -14,6 +14,7 @@ const { validateTalk,
     validateRate } = require('./controls/talkers/talkValidate');
 const addTalker = require('./controls/talkers/addTalker');
 const updateTalker = require('./controls/talkers/editTalker');
+const deleteTalker = require('./controls/talkers/deleteTalker');
 
 routes.get('/talker', readTalkerFile);
 routes.get('/talker/:id', findTalkerById);
@@ -34,5 +35,6 @@ routes.put('/talker/:id',
     validateRate,
     validateWatchedAt,
     updateTalker);
+routes.delete('/talker/:id', validateToken, deleteTalker);
 
 module.exports = routes;
